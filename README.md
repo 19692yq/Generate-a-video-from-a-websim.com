@@ -5,10 +5,9 @@ Tools:
 2.	Use ChatGPT 4 to optimize and refine the prompt.
 3.	Use Google to search online images and related documents and feed the contents to ChatGPT4.
 4.	Use Window screen recording to record the HTML file and background music
-5.	Upload video recording in YouTube
+5.	Upload video recording on YouTube
 6.	Use Github to store the project, report, Readme file, and generate project link
 7.	Include the GitHub link in the Resume.
-![image](https://github.com/user-attachments/assets/198d2ffb-751b-4162-a7d8-f3debc1eca2b)
 
 # Animation Video Project
 
