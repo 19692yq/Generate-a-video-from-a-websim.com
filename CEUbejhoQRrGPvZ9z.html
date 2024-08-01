@@ -1,0 +1,491 @@
+<html><head><base href="https://websim.creation.engine/polar-bear-tiger-rescue/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polar Bear Rescues Baby Tiger - An Arctic Adventure</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+    }
+    #scene-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1494564605686-2e931f77a8e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+    }
+    #polar-bear, #tiger, #underwater-life, #tiny-eagles, #snow-storm {
+        position: absolute;
+        transition: all 1s ease-in-out;
+    }
+    #ice-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background: linear-gradient(to bottom, rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.8));
+        pointer-events: none;
+    }
+    #message {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 18px;
+        display: none;
+        z-index: 1000;
+    }
+    #snow-storm {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+</style>
+</head>
+<body>
+<div id="scene-container">
+    <div id="ice-layer"></div>
+    <svg id="polar-bear" width="140" height="120" viewBox="0 0 140 120">
+        <ellipse cx="70" cy="80" rx="60" ry="30" fill="white"/>
+        <circle cx="70" cy="50" r="35" fill="white"/>
+        <!-- Ears -->
+        <circle cx="55" cy="20" r="8" fill="white"/>
+        <circle cx="85" cy="20" r="8" fill="white"/>
+        <circle cx="60" cy="45" r="5" fill="black"/>
+        <circle cx="80" cy="45" r="5" fill="black"/>
+        <ellipse cx="70" cy="55" rx="8" ry="5" fill="black"/>
+        <!-- Arms with palms and claws -->
+        <path d="M30 80 Q20 90 10 85" fill="none" stroke="white" stroke-width="8"/>
+        <path d="M5 82 L15 88 M5 85 L15 91 M5 88 L15 94" fill="none" stroke="black" stroke-width="2"/>
+        <path d="M110 80 Q120 90 130 85" fill="none" stroke="white" stroke-width="8"/>
+        <path d="M125 82 L135 88 M125 85 L135 91 M125 88 L135 94" fill="none" stroke="black" stroke-width="2"/>
+        <!-- Legs with claws -->
+        <path d="M40 100 Q30 110 20 105" fill="none" stroke="white" stroke-width="8"/>
+        <path d="M15 102 L25 108 M15 105 L25 111 M15 108 L25 114" fill="none" stroke="black" stroke-width="2"/>
+        <path d="M100 100 Q110 110 120 105" fill="none" stroke="white" stroke-width="8"/>
+        <path d="M115 102 L125 108 M115 105 L125 111 M115 108 L125 114" fill="none" stroke="black" stroke-width="2"/>
+    </svg>
+    <svg id="tiger" width="100" height="80" viewBox="0 0 100 80">
+        <g id="tiger-body">
+            <ellipse cx="50" cy="50" rx="45" ry="25" fill="orange"/>
+            <circle cx="50" cy="25" r="20" fill="orange"/>
+            <!-- Ears -->
+            <path d="M35 10 Q40 0 45 10" fill="orange"/>
+            <path d="M65 10 Q60 0 55 10" fill="orange"/>
+            <!-- Almond eyes -->
+            <path d="M40 20 Q45 15 50 20 Q45 25 40 20" fill="white"/>
+            <path d="M60 20 Q65 15 70 20 Q65 25 60 20" fill="white"/>
+            <circle cx="45" cy="20" r="2" fill="black"/>
+            <circle cx="65" cy="20" r="2" fill="black"/>
+            <!-- Nose and mouth -->
+            <ellipse cx="55" cy="30" rx="5" ry="3" fill="pink"/>
+            <path d="M50 35 Q55 40 60 35" fill="none" stroke="black" stroke-width="2"/>
+            <!-- Stripes -->
+            <path d="M20 45 Q50 65 80 45" fill="none" stroke="black" stroke-width="2"/>
+            <path d="M25 55 Q50 75 75 55" fill="none" stroke="black" stroke-width="2"/>
+            <path d="M30 65 Q50 85 70 65" fill="none" stroke="black" stroke-width="2"/>
+            <path d="M40 30 L60 30" fill="none" stroke="black" stroke-width="2"/>
+            <path d="M35 40 L65 40" fill="none" stroke="black" stroke-width="2"/>
+            <!-- Tail -->
+            <path d="M95 50 Q105 40 100 30" fill="none" stroke="orange" stroke-width="6"/>
+            <!-- Legs -->
+            <line x1="25" y1="70" x2="20" y2="80" stroke="orange" stroke-width="6"/>
+            <line x1="40" y1="72" x2="35" y2="80" stroke="orange" stroke-width="6"/>
+            <line x1="60" y1="72" x2="65" y2="80" stroke="orange" stroke-width="6"/>
+            <line x1="75" y1="70" x2="80" y2="80" stroke="orange" stroke-width="6"/>
+            <!-- Paws and Claws -->
+            <circle cx="20" cy="80" r="3" fill="orange"/>
+            <circle cx="35" cy="80" r="3" fill="orange"/>
+            <circle cx="65" cy="80" r="3" fill="orange"/>
+            <circle cx="80" cy="80" r="3" fill="orange"/>
+            <line x1="18" y1="82" x2="22" y2="84" stroke="black" stroke-width="1"/>
+            <line x1="33" y1="82" x2="37" y2="84" stroke="black" stroke-width="1"/>
+            <line x1="63" y1="82" x2="67" y2="84" stroke="black" stroke-width="1"/>
+            <line x1="78" y1="82" x2="82" y2="84" stroke="black" stroke-width="1"/>
+        </g>
+    </svg>
+    <svg id="underwater-life" width="100%" height="30%" viewBox="0 0 100 30" preserveAspectRatio="none">
+        <g id="betta-fish1">
+            <path d="M5,15 Q7,13 9,15 T13,15" fill="#FF6B6B"/>
+            <path d="M5,15 Q7,17 9,15 T13,15" fill="#FF6B6B" opacity="0.7"/>
+            <circle cx="6" cy="14.5" r="0.5" fill="black"/>
+        </g>
+        <g id="betta-fish2">
+            <path d="M20,10 Q22,8 24,10 T28,10" fill="#4ECDC4"/>
+            <path d="M20,10 Q22,12 24,10 T28,10" fill="#4ECDC4" opacity="0.7"/>
+            <circle cx="21" cy="9.5" r="0.5" fill="black"/>
+        </g>
+        <g id="baby-dolphin1">
+            <!-- Body -->
+            <path d="M35,15 Q40,12 45,15 T50,15" fill="#708090"/>
+            <!-- Lighter underside -->
+            <path d="M35,15 Q40,18 45,15" fill="#B0C4DE"/>
+            <!-- Dorsal fin -->
+            <path d="M40,12 L42,10 L44,12" fill="#708090"/>
+            <!-- Tail fin (fluke) -->
+            <path d="M49,15 L51,14 L51,16 Z" fill="#708090"/>
+            <!-- Pectoral fins -->
+            <path d="M38,15 L40,17 L42,15" fill="#708090"/>
+            <path d="M38,15 L40,13 L42,15" fill="#708090"/>
+            <!-- Eye -->
+            <circle cx="36.5" cy="14.5" r="0.5" fill="black"/>
+            <!-- Beak-like snout -->
+            <path d="M35,15 Q33,15.5 35,16" fill="none" stroke="#708090" stroke-width="0.5"/>
+            <!-- Blowhole -->
+            <ellipse cx="39" cy="12" rx="0.5" ry="0.2" fill="black"/>
+        </g>
+        <g id="baby-dolphin2">
+            <!-- Body -->
+            <path d="M55,20 Q60,17 65,20 T70,20" fill="#4682B4"/>
+            <!-- Lighter underside -->
+            <path d="M55,20 Q60,23 65,20" fill="#B0E0E6"/>
+            <!-- Dorsal fin -->
+            <path d="M60,17 L62,15 L64,17" fill="#4682B4"/>
+            <!-- Tail fin (fluke) -->
+            <path d="M69,20 L71,19 L71,21 Z" fill="#4682B4"/>
+            <!-- Pectoral fins -->
+            <path d="M58,20 L60,22 L62,20" fill="#4682B4"/>
+            <path d="M58,20 L60,18 L62,20" fill="#4682B4"/>
+            <!-- Eye -->
+            <circle cx="56.5" cy="19.5" r="0.5" fill="black"/>
+            <!-- Beak-like snout -->
+            <path d="M55,20 Q53,20.5 55,21" fill="none" stroke="#4682B4" stroke-width="0.5"/>
+            <!-- Blowhole -->
+            <ellipse cx="59" cy="17" rx="0.5" ry="0.2" fill="black"/>
+        </g>
+        <g id="crab1">
+            <ellipse cx="75" cy="28" rx="2" ry="1.5" fill="#FF5252"/>
+            <circle cx="74" cy="27.5" r="0.3" fill="black"/>
+            <circle cx="76" cy="27.5" r="0.3" fill="black"/>
+            <path d="M73,28 Q74,29 75,28 Q76,29 77,28" fill="none" stroke="#FF5252" stroke-width="0.5"/>
+            <line x1="72.5" y1="28" x2="71.5" y2="27.5" stroke="#FF5252" stroke-width="0.5"/>
+            <line x1="72.5" y1="28.5" x2="71.5" y2="29" stroke="#FF5252" stroke-width="0.5"/>
+            <line x1="77.5" y1="28" x2="78.5" y2="27.5" stroke="#FF5252" stroke-width="0.5"/>
+            <line x1="77.5" y1="28.5" x2="78.5" y2="29" stroke="#FF5252" stroke-width="0.5"/>
+        </g>
+        <g id="crab2">
+            <ellipse cx="85" cy="29" rx="1.5" ry="1" fill="#8B4513"/>
+            <circle cx="84.5" cy="28.7" r="0.2" fill="black"/>
+            <circle cx="85.5" cy="28.7" r="0.2" fill="black"/>
+            <path d="M84,29 Q84.5,29.5 85,29 Q85.5,29.5 86,29" fill="none" stroke="#8B4513" stroke-width="0.3"/>
+            <line x1="83.5" y1="29" x2="83" y2="28.7" stroke="#8B4513" stroke-width="0.3"/>
+            <line x1="83.5" y1="29.2" x2="83" y2="29.5" stroke="#8B4513" stroke-width="0.3"/>
+            <line x1="86.5" y1="29" x2="87" y2="28.7" stroke="#8B4513" stroke-width="0.3"/>
+            <line x1="86.5" y1="29.2" x2="87" y2="29.5" stroke="#8B4513" stroke-width="0.3"/>
+        </g>
+        <g id="tiny-lobster">
+            <!-- Body -->
+            <path d="M90,27 Q91,26 92,27 L93,29" fill="none" stroke="#0B3D91" stroke-width="0.5"/>
+            <!-- Head and eyes -->
+            <circle cx="90.5" cy="27" r="0.5" fill="#0B3D91"/>
+            <circle cx="90.3" cy="26.9" r="0.1" fill="black"/>
+            <circle cx="90.7" cy="26.9" r="0.1" fill="black"/>
+            <!-- Antennae -->
+            <path d="M90.2,26.8 Q89.8,26.5 89.5,26.7" fill="none" stroke="#0B3D91" stroke-width="0.1"/>
+            <path d="M90.8,26.8 Q91.2,26.5 91.5,26.7" fill="none" stroke="#0B3D91" stroke-width="0.1"/>
+            <!-- Claws -->
+            <path d="M91,27.5 Q91.5,27.7 91.7,27.5" fill="none" stroke="#0B3D91" stroke-width="0.2"/>
+            <path d="M92,28 Q92.5,28.2 92.7,28" fill="none" stroke="#0B3D91" stroke-width="0.2"/>
+            <!-- Legs -->
+            <path d="M91,27.7 L91.2,28" fill="none" stroke="#0B3D91" stroke-width="0.1"/>
+            <path d="M91.5,28 L91.7,28.3" fill="none" stroke="#0B3D91" stroke-width="0.1"/>
+            <path d="M92,28.3 L92.2,28.6" fill="none" stroke="#0B3D91" stroke-width="0.1"/>
+        </g>
+        <!-- Irregular shaped colorful corals -->
+        <path id="coral1" d="M5,30 C7,28 9,29 11,27 S13,28 15,30" fill="#FF1493"/>
+        <path id="coral2" d="M20,30 Q22,26 24,28 T28,30" fill="#00FF00"/>
+        <path id="coral3" d="M35,30 C37,29 39,27 41,28 S43,30 45,29" fill="#FFD700"/>
+        <path id="coral4" d="M50,30 Q52,28 54,29 T58,30" fill="#8A2BE2"/>
+        
+        <!-- Kelp -->
+        <g id="kelp">
+            <path d="M70,30 C72,25 68,20 70,15 C72,10 68,5 70,0" fill="none" stroke="#006400" stroke-width="0.5"/>
+            <path d="M73,30 C75,22 71,14 73,6" fill="none" stroke="#006400" stroke-width="0.5"/>
+            <path d="M76,30 C78,26 74,22 76,18" fill="none" stroke="#006400" stroke-width="0.5"/>
+        </g>
+        
+        <!-- Deep Sea Corals -->
+        <g id="deep-sea-coral">
+            <path d="M80,30 Q82,25 84,30" fill="#FF69B4"/>
+            <path d="M83,30 Q85,27 87,30" fill="#FF1493"/>
+            <path d="M86,30 Q88,26 90,30" fill="#DB7093"/>
+        </g>
+        
+        <!-- Red Algae -->
+        <g id="red-algae">
+            <path d="M92,30 Q94,28 96,30 Q98,28 100,30" fill="#8B0000"/>
+            <path d="M93,30 Q95,27 97,30" fill="#CD5C5C"/>
+            <path d="M95,30 Q97,26 99,30" fill="#B22222"/>
+        </g>
+    </svg>
+    <svg id="tiny-eagles" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <g id="tiny-eagle1">
+            <path d="M10,10 Q12,9 14,10" fill="black"/>
+            <circle cx="11" cy="9.5" r="0.5" fill="white"/>
+            <circle cx="11" cy="9.5" r="0.25" fill="black"/>
+            <path d="M10.5,9 Q11,8.5 11.5,9" fill="yellow"/>
+            <!-- Feathers -->
+            <path d="M9,10.5 Q10,10 11,10.5" fill="black" />
+            <path d="M13,10.5 Q14,10 15,10.5" fill="black" />
+            <!-- Claws -->
+            <path d="M10.5,11 L10,11.5 M11.5,11 L12,11.5" fill="none" stroke="yellow" stroke-width="0.1"/>
+        </g>
+        <g id="tiny-eagle2">
+            <path d="M80,5 Q82,4 84,5" fill="black"/>
+            <circle cx="81" cy="4.5" r="0.5" fill="white"/>
+            <circle cx="81" cy="4.5" r="0.25" fill="black"/>
+            <path d="M80.5,4 Q81,3.5 81.5,4" fill="yellow"/>
+            <!-- Feathers -->
+            <path d="M79,5.5 Q80,5 81,5.5" fill="black" />
+            <path d="M83,5.5 Q84,5 85,5.5" fill="black" />
+            <!-- Claws -->
+            <path d="M80.5,6 L80,6.5 M81.5,6 L82,6.5" fill="none" stroke="yellow" stroke-width="0.1"/>
+        </g>
+    </svg>
+    <div id="snow-storm"></div>
+    <div id="message"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+const polarBear = document.getElementById('polar-bear');
+const tiger = document.getElementById('tiger');
+const tigerBody = document.getElementById('tiger-body');
+const underwaterLife = document.getElementById('underwater-life');
+const tinyEagles = document.getElementById('tiny-eagles');
+const snowStorm = document.getElementById('snow-storm');
+const message = document.getElementById('message');
+
+// Initial positions
+gsap.set(polarBear, { x: -140, y: window.innerHeight - 220 });
+gsap.set(tiger, { x: window.innerWidth + 100, y: window.innerHeight - 150 });
+gsap.set(underwaterLife, { y: window.innerHeight - (window.innerHeight * 0.3) });
+gsap.set(tinyEagles, { y: 50 });
+
+// Create snow storm
+function createSnowstorm() {
+    const snowflakeCount = 200;
+    for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.style.position = 'absolute';
+        snowflake.style.width = '2px';
+        snowflake.style.height = '2px';
+        snowflake.style.backgroundColor = 'white';
+        snowflake.style.borderRadius = '50%';
+        snowflake.style.opacity = Math.random();
+        snowflake.style.left = `${Math.random() * 100}%`;
+        snowflake.style.top = `${Math.random() * 100}%`;
+        snowStorm.appendChild(snowflake);
+
+        gsap.to(snowflake, {
+            y: '+=100%',
+            x: '+=50',
+            rotation: 360,
+            duration: 3 + Math.random() * 3,
+            repeat: -1,
+            ease: 'none'
+        });
+    }
+}
+
+createSnowstorm();
+
+// Tiger running animation
+function runningTiger() {
+    gsap.to(tigerBody, {
+        scaleY: 0.9,
+        scaleX: 1.1,
+        y: 2,
+        duration: 0.2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+    });
+}
+
+// Polar bear swimming animation
+function swimmingPolarBear() {
+    gsap.to(polarBear, {
+        y: "+=10",
+        rotation: 5,
+        duration: 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+    });
+}
+
+// Underwater life animation
+function animateUnderwaterLife() {
+    // Betta fish animation
+    gsap.to("#betta-fish1, #betta-fish2", {
+        x: "+=50",
+        y: "+=5",
+        duration: 5,
+        repeat: -1,
+        ease: "none",
+        yoyo: true,
+        stagger: 0.5
+    });
+    
+    // Dolphin dancing animation
+    gsap.to("#baby-dolphin1", { 
+        x: "-=60", 
+        y: "+=10", 
+        rotation: 15, 
+        duration: 2, 
+        repeat: -1, 
+        ease: "power1.inOut", 
+        yoyo: true
+    });
+    gsap.to("#baby-dolphin2", { 
+        x: "+=60", 
+        y: "-=10", 
+        rotation: -15, 
+        duration: 2, 
+        repeat: -1, 
+        ease: "power1.inOut", 
+        yoyo: true
+    });
+
+    // Crab animation
+    gsap.to("#crab1, #crab2", {
+        x: "+=10",
+        rotation: 5,
+        duration: 3,
+        repeat: -1,
+        ease: "power1.inOut",
+        yoyo: true,
+        stagger: 0.5
+    });
+
+    // Lobster animation
+    gsap.to("#tiny-lobster", { 
+        x: "-=10", 
+        y: "-=5", 
+        duration: 3, 
+        repeat: -1, 
+        ease: "power1.inOut", 
+        yoyo: true,
+        onStart: () => {
+            gsap.to("#tiny-lobster path, #tiny-lobster circle", { 
+                scale: 1.1, 
+                duration: 1.5, 
+                repeat: -1, 
+                yoyo: true, 
+                ease: "power1.inOut" 
+            });
+        }
+    });
+
+    // Coral animation
+    gsap.to("#coral1, #coral2, #coral3, #coral4", { scaleY: 1.1, duration: 2, repeat: -1, ease: "power1.inOut", yoyo: true, stagger: 0.5 });
+
+    // Kelp animation
+    gsap.to("#kelp path", {
+        scaleY: 1.05,
+        transformOrigin: "bottom",
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        stagger: 0.3
+    });
+
+    // Deep Sea Coral animation
+    gsap.to("#deep-sea-coral path", {
+        scale: 1.1,
+        transformOrigin: "bottom",
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        stagger: 0.2
+    });
+
+    // Red Algae animation
+    gsap.to("#red-algae path", {
+        scaleX: 1.1,
+        transformOrigin: "bottom",
+        duration: 1.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        stagger: 0.25
+    });
+}
+
+// Tiny eagles animation
+function animateTinyEagles() {
+    gsap.to("#tiny-eagle1", { x: "+=20", y: "+=10", rotation: 5, duration: 3, repeat: -1, ease: "power1.inOut", yoyo: true });
+    gsap.to("#tiny-eagle2", { x: "-=25", y: "-=8", rotation: -8, duration: 4, repeat: -1, ease: "power1.inOut", yoyo: true });
+}
+
+const tl = gsap.timeline();
+
+// Start animations
+runningTiger();
+swimmingPolarBear();
+animateUnderwaterLife();
+animateTinyEagles();
+
+// Scene 1: Introduce characters
+tl.to(polarBear, { x: 100, duration: 2, ease: "power2.out" })
+  .to(tiger, { x: window.innerWidth - 200, duration: 2, ease: "power2.out" }, "<")
+  .call(() => showMessage("A lost baby tiger, running on the Arctic ice..."))
+  .to(tiger, { y: "-=20", yoyo: true, repeat: 5, duration: 0.2 }, "+=1")
+  .call(() => showMessage("A curious polar bear swims beneath the ice"))
+  .to(polarBear, { x: window.innerWidth - 300, duration: 3, ease: "power2.inOut" });
+
+// Scene 2: The rescue
+tl.call(() => showMessage("The polar bear breaks through the ice"))
+  .to(polarBear, { y: "-=50", duration: 1, ease: "power2.out" })
+  .to(polarBear, { x: window.innerWidth - 150, duration: 2, ease: "power2.inOut" })
+  .call(() => showMessage("Gently guiding the tiger to safety"))
+  .to(tiger, { x: "-=50", y: "+=20", duration: 1 })
+  .to(polarBear, { x: "-=50", duration: 1 }, "<");
+
+// Scene 3: Journey together
+tl.call(() => showMessage("Together, they embark on a perilous journey"))
+  .to([polarBear, tiger], { x: 100, duration: 4, ease: "power2.inOut" })
+  .call(() => showMessage("Facing challenges and forming an unexpected bond"))
+  .to(tiger, { y: "-=20", yoyo: true, repeat: 2, duration: 0.3 })
+  .to(polarBear, { y: "-=10", yoyo: true, repeat: 2, duration: 0.3 }, "<");
+
+// Scene 4: Marine life, eagles, and storm
+tl.call(() => showMessage("A vibrant marine world thrives beneath the ice"))
+  .to(underwaterLife, { y: "-=20", duration: 2, ease: "power2.inOut" })
+  .call(() => showMessage("Tiny American black eagles soar above, watching the unlikely duo"))
+  .to(tinyEagles, { y: "-=20", duration: 2, ease: "power2.out" })
+  .call(() => showMessage("A sudden snowstorm engulfs the Arctic landscape"))
+  .to(snowStorm, { opacity: 0.8, duration: 2, ease: "power2.inOut" });
+
+// Scene 5: Safe haven
+tl.call(() => showMessage("Against all odds, they reach a hidden, icy sanctuary"))
+  .to([polarBear, tiger], { x: window.innerWidth / 2 - 100, y: window.innerHeight - 150, duration: 3, ease: "power2.inOut" })
+  .call(() => showMessage("A heartwarming tale of friendship in the harsh Arctic"))
+  .to(message, { opacity: 0, duration: 1 }, "+=2")
+  .call(() => {
+    message.innerHTML = "Protect our Arctic wildlife and delicate marine ecosystems. <br>Learn more about conservation efforts.";
+    message.style.display = "block";
+  })
+  .to(message, { opacity: 1, duration: 1 });
+
+function showMessage(text) {
+    message.innerHTML = text;
+    message.style.display = "block";
+    gsap.fromTo(message, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+}
+</script>
+</body></html>
